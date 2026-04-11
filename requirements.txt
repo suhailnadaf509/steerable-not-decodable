@@ -1,0 +1,73 @@
+# =============================================================================
+# fv_cross_template — Requirements
+# Cross-template Function Vector Transfer Framework
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Core PyTorch
+# Install with CUDA support: pip install torch --index-url https://download.pytorch.org/whl/cu121
+# -----------------------------------------------------------------------------
+torch>=2.1.0
+torchvision>=0.16.0  # occasionally pulled in by torch ecosystem tools
+
+# -----------------------------------------------------------------------------
+# TransformerLens — mechanistic interpretability hooks
+# Used for HookedTransformer, activation caching, and steering hooks
+# -----------------------------------------------------------------------------
+transformer_lens>=1.19.0
+
+# TransformerLens hard dependencies (explicitly pinned for reproducibility)
+einops>=0.7.0
+jaxtyping>=0.2.28
+beartype>=0.16.4
+
+# -----------------------------------------------------------------------------
+# HuggingFace Stack — REQUIRED for gated models (Llama-3.1, Gemma-2, Mistral)
+#
+# Before running, authenticate with:
+#   huggingface-cli login
+# or set:
+#   export HUGGING_FACE_HUB_TOKEN=<your_token>
+#
+# Then request access on HuggingFace for each gated model:
+#   - meta-llama/Llama-3.1-8B          https://huggingface.co/meta-llama/Llama-3.1-8B
+#   - meta-llama/Llama-3.1-8B-Instruct https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct
+#   - google/gemma-2-9b                 https://huggingface.co/google/gemma-2-9b
+#   - google/gemma-2-9b-it              https://huggingface.co/google/gemma-2-9b-it
+#   - mistralai/Mistral-7B-v0.1         https://huggingface.co/mistralai/Mistral-7B-v0.1
+#   - mistralai/Mistral-7B-Instruct-v0.2 https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2
+# -----------------------------------------------------------------------------
+transformers>=4.40.0
+huggingface_hub>=0.23.0
+accelerate>=0.29.0
+tokenizers>=0.19.0
+safetensors>=0.4.0
+
+# Tokenizer backends needed for Llama-3.1 (tiktoken) and Gemma-2 (sentencepiece)
+tiktoken>=0.6.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0  # required by sentencepiece
+
+# -----------------------------------------------------------------------------
+# Scientific Computing
+# -----------------------------------------------------------------------------
+numpy>=1.24.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+
+# -----------------------------------------------------------------------------
+# Utilities
+# -----------------------------------------------------------------------------
+tqdm>=4.65.0
+
+# -----------------------------------------------------------------------------
+# Visualization (optional — gracefully skipped if unavailable)
+# Used in visualization.py for publication-quality figures
+# -----------------------------------------------------------------------------
+matplotlib>=3.7.0
+
+# -----------------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------------
+pytest>=7.4.0
+pytest-cov>=4.1.0
